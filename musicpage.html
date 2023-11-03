@@ -53,6 +53,17 @@
             gap: 10px;
             justify-content: center;
         }
+        
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .progress-container {
+            width: 50%;
+            margin: 0 auto;
+        }
        
        
     </style>
@@ -85,9 +96,73 @@
         <center><iframe width="90%" height="720" src="https://www.youtube.com/embed/dA9F7BRjdOE" title="Bôa - Duvet (Atmospheric DnB remix)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center>
         <br><br><br><br><br><br><br><br>
         <center><iframe width="90%" height="720" src="https://www.youtube.com/embed/z0wD4ySLpM8" title="Катя Лель - Долетай (speed up)(nightcore)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center>
-        <br><br><br><br><br><br><br><br>
-    
-    
+           <br><br><br><br><br><br><br><br>
+
+<h1><b><u>My Hi-Res Music Collection</u></b></h1>    
+<br><br><br><br><br><br><br><br>
+
+
+
+
+
+<h2>Crave - Paramore (.flac)</h2>
+<audio id="audioPlayer1" src="music/09. - Crave.flac" preload="auto"></audio>
+
+<div class="button-container">
+  <button onclick="playPause('audioPlayer1')">Play/Pause</button>
+  <a href="music/09. - Crave.flac" download>
+    <button>Download</button>
+  </a>
+</div>
+<br><br><br>
+<h2>In your world - Muse (.flac)</h2>
+<audio id="audioPlayer2" src="music/02. In Your World.flac" preload="auto"></audio>
+
+<div class="button-container">
+  <button onclick="playPause('audioPlayer2')">Play/Pause</button>
+  <a href="music/02. In Your World.flac" download>
+    <button>Download</button>
+  </a>
+</div>
+
+<input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1" onchange="setVolume()">
+
+<div class="progress-container">
+  <progress id="progressBar" value="0" max="100" style="width: 100%;"></progress>
+</div>
+
+<script>
+  var volumeControl = document.getElementById('volumeControl');
+
+  function playPause(audioId) {
+    var audioPlayer = document.getElementById(audioId);
+    var progressBar = document.getElementById('progressBar');
+    if (audioPlayer.paused) {
+      audioPlayer.play();
+      audioPlayer.addEventListener('timeupdate', function() {
+        var currentTime = audioPlayer.currentTime;
+        var duration = audioPlayer.duration;
+        progressBar.value = (currentTime / duration) * 50;
+      });
+    } else {
+      audioPlayer.pause();
+    }
+  }
+
+  function setVolume() {
+    var audioPlayer1 = document.getElementById('audioPlayer1');
+    var audioPlayer2 = document.getElementById('audioPlayer2');
+    audioPlayer1.volume = volumeControl.value;
+    audioPlayer2.volume = volumeControl.value;
+  }
+</script>
+
+</script>
+<br><br><br><br><br><br><br><br>
+
+
+
+
     
     
     </main>
