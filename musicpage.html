@@ -55,16 +55,16 @@
         }
         
         .button-container {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 20px;
+          display: flex;
+          gap: 10px;
+          justify-content: center;
+          margin-bottom: 20px;
         }
-        .progress-container {
-            width: 50%;
-            margin: 0 auto;
+      .progress-container {
+          width: 50%;
+          margin: 0 auto;
         }
-       
+  
        
     </style>
 </head>
@@ -99,37 +99,68 @@
            <br><br><br><br><br><br><br><br>
 
 <h1><b><u>My Hi-Res Music Collection</u></b></h1>    
-<br><br><br><br><br><br><br><br>
+<span>Volume    </span><input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1" onchange="setVolume()">
 
-
-
-
-
-<h2>Crave - Paramore (.flac)</h2>
-<audio id="audioPlayer1" src="music/09. - Crave.flac" preload="auto"></audio>
+<br><br><br><br>
+<h2>15 Step - Radiohead (.mp3 320kbps)</h2>
+<audio id="audioPlayer1" src="music/02 - Radiohead - 15 Step.mp3" preload="auto"></audio>
 
 <div class="button-container">
   <button onclick="playPause('audioPlayer1')">Play/Pause</button>
+  <button onclick="restart('audioPlayer1')">Restart</button>
+  <a href="music/02 - Radiohead - 15 Step.mp3" download>
+    <button>Download</button>
+  </a>
+</div>
+<br><br><br>
+<h2>Jigsaw Falling Into Place - Radiohead (.mp3 320kbps)</h2>
+<audio id="audioPlayer2" src="music/17 - Radiohead - Jigsaw Falling Into Place.mp3" preload="auto"></audio>
+
+<div class="button-container">
+  <button onclick="playPause('audioPlayer2')">Play/Pause</button>
+  <button onclick="restart('audioPlayer2')">Restart</button>
+  <a href="music/17 - Radiohead - Jigsaw Falling Into Place.mp3" download>
+    <button>Download</button>
+  </a>
+</div>
+<br><br><br>
+<h2>Crave - Paramore (.flac)</h2>
+<audio id="audioPlayer3" src="music/09. - Crave.flac" preload="auto"></audio>
+
+<div class="button-container">
+  <button onclick="playPause('audioPlayer3')">Play/Pause</button>
+  <button onclick="restart('audioPlayer3')">Restart</button>
   <a href="music/09. - Crave.flac" download>
     <button>Download</button>
   </a>
 </div>
 <br><br><br>
-<h2>In your world - Muse (.flac)</h2>
-<audio id="audioPlayer2" src="music/02. In Your World.flac" preload="auto"></audio>
+<h2>In Your World - Muse (.flac)</h2>
+<audio id="audioPlayer4" src="music/02. In Your World.flac" preload="auto"></audio>
 
 <div class="button-container">
-  <button onclick="playPause('audioPlayer2')">Play/Pause</button>
+  <button onclick="playPause('audioPlayer4')">Play/Pause</button>
+  <button onclick="restart('audioPlayer4')">Restart</button>
   <a href="music/02. In Your World.flac" download>
     <button>Download</button>
   </a>
 </div>
+<br><br><br>
+<h2>Ignorance - Paramore (.mp3 320kbps)</h2>
+<audio id="audioPlayer5" src="music/02 - Paramore - Ignorance.mp3" preload="auto"></audio>
 
-<input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1" onchange="setVolume()">
-
-<div class="progress-container">
-  <progress id="progressBar" value="0" max="100" style="width: 100%;"></progress>
+<div class="button-container">
+  <button onclick="playPause('audioPlayer5')">Play/Pause</button>
+  <button onclick="restart('audioPlayer5')">Restart</button>
+  <a href="music/02 - Paramore - Ignorance.mp3" download>
+    <button>Download</button>
+  </a>
 </div>
+<br><br><br>
+
+<!--<div class="progress-container">
+  <progress id="progressBar" value="0" max="100" style="width: 100%;"></progress>
+</div>-->
 
 <script>
   var volumeControl = document.getElementById('volumeControl');
@@ -148,15 +179,25 @@
       audioPlayer.pause();
     }
   }
-
+  function restart(audioId) {
+    var audioPlayer = document.getElementById(audioId);
+    audioPlayer.currentTime = 0;
+    audioPlayer.play();
+  }
   function setVolume() {
     var audioPlayer1 = document.getElementById('audioPlayer1');
     var audioPlayer2 = document.getElementById('audioPlayer2');
+    var audioPlayer3 = document.getElementById('audioPlayer3');
+    var audioPlayer4 = document.getElementById('audioPlayer4');
+    var audioPlayer5 = document.getElementById('audioPlayer5');
+    var audioPlayer6 = document.getElementById('audioPlayer6');
     audioPlayer1.volume = volumeControl.value;
     audioPlayer2.volume = volumeControl.value;
+    audioPlayer3.volume = volumeControl.value;
+    audioPlayer4.volume = volumeControl.value;
+    audioPlayer5.volume = volumeControl.value;
+    audioPlayer6.volume = volumeControl.value;
   }
-</script>
-
 </script>
 <br><br><br><br><br><br><br><br>
 
