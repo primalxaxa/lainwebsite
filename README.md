@@ -8,7 +8,7 @@ I have written all of the code for this website myself so I have full control ov
 
 You can see my website [here](www.lainpilled.com)
 
-![lain dancing](img/laindance.gif)
+![anti-fed](img/glowie-banner.png)
 
 ----
 
